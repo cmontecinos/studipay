@@ -1,0 +1,21 @@
+package view
+
+templ Index() {
+    <html>
+        <head>
+            <title>My Page</title>
+             <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+        </head>
+        <body>
+            <h1>Hello, World from templ</h1>
+             <button hx-post="/clicked" hx-swap="outerHTML">
+                Click Me
+            </button>
+        </body>
+    </html>
+}
+
+
+templ Button(){
+    <h1>Thank you for clicking me!</h1>
+}
