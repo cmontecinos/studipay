@@ -8,7 +8,3 @@ import (
 func IndexHandler(c echo.Context) error {
 	return view.Index().Render(c.Request().Context(), c.Response())
 }
-
-func ButtonHandler(c echo.Context) error {
-	return view.Button().Render(c.Request().Context(), c.Response())
-}

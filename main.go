@@ -10,9 +10,8 @@ import (
 func main() {
 	fmt.Println("Starting server...")
 	e := echo.New()
-
+	e.Static("/static", "static")
 	e.GET("/", handler.IndexHandler)
-	e.POST("/clicked", handler.ButtonHandler)
 
 	e.Start(":8080")
 }
