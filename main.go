@@ -13,5 +13,7 @@ func main() {
 	e.Static("/static", "static")
 	e.GET("/", handler.IndexHandler)
 
+	e.GET("/students", handler.StudentsHandler)
+
 	e.Start(":8080")
 }
