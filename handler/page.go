@@ -12,3 +12,7 @@ func IndexHandler(c echo.Context) error {
 func StudentsHandler(c echo.Context) error {
 	return view.Students().Render(c.Request().Context(), c.Response())
 }
+
+func PaymentHanlder(c echo.Context) error {
+	return view.Payments().Render(c.Request().Context(), c.Response())
+}

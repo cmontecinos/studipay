@@ -14,6 +14,7 @@ func main() {
 	e.GET("/", handler.IndexHandler)
 
 	e.GET("/students", handler.StudentsHandler)
+	e.GET("/payments", handler.PaymentHanlder)
 
 	e.Start(":8080")
 }

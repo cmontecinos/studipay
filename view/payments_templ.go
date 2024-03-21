@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Students() templ.Component {
+func Payments() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -51,17 +51,7 @@ func Students() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4\"><div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"><h1 class=\"h2\">Estudiantes</h1></div><form class=\"row g-3\"><div class=\"col-md-2\"><label for=\"inputNombre\" class=\"form-label\">Nombre</label> <input type=\"text\" class=\"form-control input-small\" id=\"inputNombre\" placeholder=\"Nombre\"></div><div class=\"col-md-2\"><label for=\"inputApoderado\" class=\"form-label\">Apoderado</label> <input type=\"text\" class=\"form-control input-small\" id=\"inputApoderado\" placeholder=\"Apoderado\"></div><div class=\"col-md-2\"><label for=\"inputRut\" class=\"form-label\">RUT</label> <input type=\"text\" class=\"form-control input-small\" id=\"inputRut\" placeholder=\"RUT\"></div><div class=\"col-md-2\"><label for=\"inputTelefono\" class=\"form-label\">Teléfono</label> <input type=\"text\" class=\"form-control input-small\" id=\"inputTelefono\" placeholder=\"Teléfono\"></div><div class=\"col-md-2\"><label for=\"inputEmail\" class=\"form-label\">Email</label> <input type=\"email\" class=\"form-control input-small\" id=\"inputEmail\" placeholder=\"Email\"></div><div class=\"col-12\"><button type=\"submit\" class=\"btn btn-primary\">Crear Estudiante</button></div></form><br><div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"><h1 class=\"h2\">Buscar</h1></div><form class=\"row g-3\"><div class=\"col-md-3\"><input type=\"text\" class=\"form-control input-small\" id=\"inputSearch\" placeholder=\"Nombre\"></div><div class=\"col-md-3\"><button type=\"submit\" class=\"btn btn-primary\">Buscar</button></div></form><br><table class=\"table table-striped\"><thead><tr><th scope=\"col\">Alumno</th><th scope=\"col\">Apoderado</th><th scope=\"col\">Email</th><th scope=\"col\">Teléfono</th><th scope=\"col\">Modificar</th><th scope=\"col\">Eliminar</th></tr></thead> <tbody>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		for i := 0; i < 10; i++ {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<tr><td>Alumno</td><td>Apoderado</td><td>email@example.com</td><td>123456789</td><td><button class=\"btn btn-primary\">Modificar</button></td><td><button class=\"btn btn-danger\">Eliminar</button></td></tr>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</tbody></table></main></div></div></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4\"><div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"><h1 class=\"h2\">Pagos</h1></div><form class=\"row g-3\"><div class=\"col-md-2\"><label for=\"inputAlumno\" class=\"form-label\">Alumno</label> <select class=\"form-select\" id=\"inputAlumno\"><option value=\"alumno1\">Alumno 1</option> <option value=\"alumno2\">Alumno 2</option> <option value=\"alumno3\">Alumno 3</option></select></div><div class=\"col-md-2\"><label for=\"inputMonto\" class=\"form-label\">Monto</label> <input type=\"text\" class=\"form-control input-small\" id=\"inputMonto\" placeholder=\"Monto\"></div><div class=\"col-12\"><button type=\"submit\" class=\"btn btn-primary\">Agregar Pago</button></div></form></main></div></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
