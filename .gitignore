@@ -22,3 +22,7 @@
 
 # Temporary files
 tmp/
+
+# Database configuration file
+db/config.ini
+
