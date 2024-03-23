@@ -1,0 +1,15 @@
+package crud
+
+import "bigbytes.io/studipay/types"
+import "strconv"
+
+templ CreatedStudent(student *types.Student) {
+	<tr>
+		<td>{ student.Name } </td>
+		<td>{ student.Representative }</td>
+		<td>{ student.Email }</td>
+		<td>{ student.Rut }</td>
+		<td><button class="btn btn-primary">Editar</button></td>
+		<td><button class="btn btn-danger" hx-target="body" hx-delete={ "/students/" + strconv.Itoa(int(student.StudentID)) }>Eliminar</button></td>
+	</tr>
+}

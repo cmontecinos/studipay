@@ -28,3 +28,19 @@ func UpdateStudent(student *types.Student) error {
 	}
 	return nil
 }
+
+func GetAllStudents() ([]*types.Student, error) {
+	students, err := persistence.GetAllStudents()
+	if err != nil {
+		return nil, err
+	}
+	return students, nil
+}
+
+func SearchStudentByName(name string) ([]*types.Student, error) {
+	students, err := persistence.SearchStudentByName(name)
+	if err != nil {
+		return nil, err
+	}
+	return students, nil
+}

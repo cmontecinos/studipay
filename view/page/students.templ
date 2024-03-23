@@ -1,6 +1,8 @@
-package view
+package page
 
-templ Students() {
+import "bigbytes.io/studipay/types"
+
+templ Students(students []*types.Student) {
 	<!DOCTYPE html>
 	<html lang="en" data-bs-theme="auto">
 		@head()
@@ -32,26 +34,26 @@ templ Students() {
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 							<h1 class="h2">Estudiantes</h1>
 						</div>
-						<form class="row g-3">
+						<form hx-post="/students" hx-swap="afterbegin" hx-target="#students-list" hx-ext="json-enc" class="row g-3">
 							<div class="col-md-2">
 								<label for="inputNombre" class="form-label">Nombre</label>
-								<input type="text" class="form-control input-small" id="inputNombre" placeholder="Nombre"/>
+								<input type="text" name="name" class="form-control input-small" id="inputNombre" placeholder="Nombre" required/>
 							</div>
 							<div class="col-md-2">
 								<label for="inputApoderado" class="form-label">Apoderado</label>
-								<input type="text" class="form-control input-small" id="inputApoderado" placeholder="Apoderado"/>
+								<input type="text" name="representative" class="form-control input-small" id="inputApoderado" placeholder="Apoderado" required/>
 							</div>
 							<div class="col-md-2">
 								<label for="inputRut" class="form-label">RUT</label>
-								<input type="text" class="form-control input-small" id="inputRut" placeholder="RUT"/>
+								<input type="text" name="rut" class="form-control input-small" id="inputRut" placeholder="RUT" required/>
 							</div>
 							<div class="col-md-2">
 								<label for="inputTelefono" class="form-label">Teléfono</label>
-								<input type="text" class="form-control input-small" id="inputTelefono" placeholder="Teléfono"/>
+								<input type="text" name="phone" class="form-control input-small" id="inputTelefono" placeholder="Teléfono" required/>
 							</div>
 							<div class="col-md-2">
 								<label for="inputEmail" class="form-label">Email</label>
-								<input type="email" class="form-control input-small" id="inputEmail" placeholder="Email"/>
+								<input type="email" name="email" class="form-control input-small" id="inputEmail" placeholder="Email" required/>
 							</div>
 							<div class="col-12">
 								<button type="submit" class="btn btn-primary">Crear Estudiante</button>
@@ -61,39 +63,16 @@ templ Students() {
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 							<h1 class="h2">Buscar</h1>
 						</div>
-						<form class="row g-3">
+						<form class="row g-3" hx-get="/students/search" hx-swap="outerHTML" hx-target="#students-list">
 							<div class="col-md-3">
-								<input type="text" class="form-control input-small" id="inputSearch" placeholder="Nombre"/>
+								<input type="text" class="form-control input-small" id="inputSearch" name="search_name" placeholder="Nombre"/>
 							</div>
 							<div class="col-md-3">
 								<button type="submit" class="btn btn-primary">Buscar</button>
 							</div>
 						</form>
 						<br/>
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th scope="col">Alumno</th>
-									<th scope="col">Apoderado</th>
-									<th scope="col">Email</th>
-									<th scope="col">Teléfono</th>
-									<th scope="col">Modificar</th>
-									<th scope="col">Eliminar</th>
-								</tr>
-							</thead>
-							<tbody>
-								for i := 0; i < 10; i++ {
-									<tr>
-										<td>Alumno</td>
-										<td>Apoderado</td>
-										<td>email@example.com</td>
-										<td>123456789</td>
-										<td><button class="btn btn-primary">Modificar</button></td>
-										<td><button class="btn btn-danger">Eliminar</button></td>
-									</tr>
-								}
-							</tbody>
-						</table>
+						@StudentsTable(students)
 					</main>
 				</div>
 			</div>

@@ -22,6 +22,7 @@ func main() {
 	e.POST("/students", handler.CreateStudentHandler)
 	e.GET("/students/:rut", handler.GetStudentHandler)
 	e.PUT("/students", handler.UpdateStudentHandler)
+	e.GET("/students/search", handler.SearchStudentByNameHandler)
 
 	//payments
 	e.POST("/payments", handler.CreatePaymentHandler)

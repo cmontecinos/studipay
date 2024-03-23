@@ -1,0 +1,19 @@
+package page
+
+import "bigbytes.io/studipay/types"
+
+templ StudentsTable(students []*types.Student) {
+	<table id="students-table" class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Alumno</th>
+				<th scope="col">Apoderado</th>
+				<th scope="col">Email</th>
+				<th scope="col">Teléfono</th>
+				<th scope="col">Modificar</th>
+				<th scope="col">Eliminar</th>
+			</tr>
+		</thead>
+		@StudentsTableList(students)
+	</table>
+}

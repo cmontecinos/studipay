@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"strings"
 
 	"bigbytes.io/studipay/db"
 	"bigbytes.io/studipay/types"
@@ -49,4 +50,48 @@ func UpdateStudent(student *types.Student) error {
 	}
 
 	return nil
+}
+
+func GetAllStudents() ([]*types.Student, error) {
+	client := db.GetClient()
+	rows, err := client.Query("SELECT student_id, rut, name, representative, phone, email FROM student")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	students := make([]*types.Student, 0)
+	for rows.Next() {
+		student := &types.Student{}
+		err := rows.Scan(&student.StudentID, &student.Rut, &student.Name, &student.Representative, &student.Phone, &student.Email)
+		if err != nil {
+			return nil, err
+		}
+		students = append(students, student)
+	}
+
+	return students, nil
+}
+
+func SearchStudentByName(name string) ([]*types.Student, error) {
+	client := db.GetClient()
+	lowerCaseName := strings.ToLower(name)
+
+	rows, err := client.Query("SELECT student_id, rut, name, representative, phone, email FROM student WHERE lower(name) LIKE $1", "%"+lowerCaseName+"%")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	students := make([]*types.Student, 0)
+	for rows.Next() {
+		student := &types.Student{}
+		err := rows.Scan(&student.StudentID, &student.Rut, &student.Name, &student.Representative, &student.Phone, &student.Email)
+		if err != nil {
+			return nil, err
+		}
+		students = append(students, student)
+	}
+
+	return students, nil
 }
